@@ -33,7 +33,7 @@ public class Commit {
     public static LocalDateTime lastCommitTime(String workingDirectory){
         List<LocalDateTime> time = new ArrayList<>();
         try {
-            Files.walk(Paths.get("")) // path
+            Files.walk(Paths.get("C:\\Users\\Tatiana\\Desktop\\Lab 2 OOP\\Lab-2-OOP\\lab 2\\Commits")) // path
                     .filter(Files::isRegularFile)
                     .forEach(filePath -> {
                         try {
@@ -56,7 +56,7 @@ public class Commit {
 
 
     public static boolean checkCommit(String workingDirectory) {
-        Path directoryPath = Paths.get(""); //path
+        Path directoryPath = Paths.get("C:\\Users\\Tatiana\\Desktop\\Lab 2 OOP\\Lab-2-OOP\\lab 2\\Commits"); //path
         try (Stream<Path> paths = Files.walk(directoryPath)) {
             return paths.filter(Files::isRegularFile)
                     .anyMatch(path -> {
@@ -78,7 +78,7 @@ public class Commit {
     public static void createSnapshot(String workingDirectory) {
         long fileCount = 0;
         Path currentWorkingDirectory = Paths.get(System.getProperty("user.dir"));
-        Path folderPath = currentWorkingDirectory.resolve("Snapshots");
+        Path folderPath = currentWorkingDirectory.resolve("Commits");
         try {
             fileCount = Files.walk(folderPath).filter(Files::isRegularFile).count();
         } catch (IOException e) {

@@ -4,4 +4,3 @@ public class Main {
         Choices.directoryOption(workingDirectory);
     }
 }
-

@@ -37,6 +37,7 @@ public class Processing {
                             break;
                         case "py":
                         case "java":
+                        case "cpp":
                             processProgramFile(filePath);
                             break;
                         default:
@@ -97,7 +98,7 @@ public class Processing {
 
                 if (line.contains("class ")) {
                     classCount = classCount + 1;
-                } else if (line.contains("void ") || line.contains("int ") || line.contains("String ")) {
+                } else if (line.contains("void ") || line.contains("int ") ||  line.contains("std::string ") || line.contains("char ") || line.contains("String ")) {
                     methodCount++;
                 }
             }
