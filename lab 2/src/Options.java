@@ -7,10 +7,10 @@ public class Options {
         Scanner sc = new Scanner(System.in);
         System.out.println("""
                 Options:
-                1. Commit (commit)
-                2. Info (info | info <file name>)
-                3. Status (status)
-                4. Quit (quit)
+                1. commit
+                2. info <filename>
+                3. status
+                4. end
                 """);
         String action = sc.nextLine();
         String[] actionMass = action.split("\\s+");
@@ -28,14 +28,12 @@ public class Options {
                     case "status":
                         if (Snapshot.checkCommit(workingDirectory)){
                             Snapshot.status(workingDirectory);
-                            directoryOption(workingDirectory);
-                            break;
                         } else {
                             System.out.println("Not commit yet in this directory");
-                            directoryOption(workingDirectory);
-                            break;
                         }
-                    case "quit":
+                        directoryOption(workingDirectory);
+                        break;
+                    case "end":
                         System.exit(0);
                         break;
                     default:
@@ -47,13 +45,11 @@ public class Options {
             case 2:
                 if (Objects.equals(actionMass[0], "info")){
                     FileProcessor.processFileInfo(workingDirectory, actionMass[1]);
-                    directoryOption(workingDirectory);
-                    break;
                 } else {
                     System.out.println("Wrong operation.");
-                    directoryOption(workingDirectory);
-                    break;
                 }
+                directoryOption(workingDirectory);
+                break;
         }
 
 
