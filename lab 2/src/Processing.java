@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class FileProcessor {
+public class Processing {
 
     public static void processFileInfo(String folderPath, String fileName) {
         Path directoryPath = Paths.get(folderPath);
@@ -23,7 +23,7 @@ public class FileProcessor {
                 System.out.println("File Name: " + fileName);
                 System.out.println("File Extension: " + fileExtension);
                 System.out.println("Created Date: " + Files.getAttribute(filePath, "creationTime"));
-                System.out.println("Last Updated Date: " + Files.getLastModifiedTime(filePath));
+                System.out.println("Last Modified Time: " + Files.getLastModifiedTime(filePath));
 
                 if (fileExtension != null) {
                     switch (fileExtension.toLowerCase()) {
@@ -40,7 +40,7 @@ public class FileProcessor {
                             processProgramFile(filePath);
                             break;
                         default:
-                            System.out.println("General Information: File type not processed for additional details.");
+                            System.out.println("File type not processed for additional details.");
                             break;
                     }
                 }
@@ -67,9 +67,9 @@ public class FileProcessor {
                 .count();
         long charCount = Files.size(filePath);
         System.out.println("Text File Details:");
-        System.out.println("Line Count: " + lineCount);
-        System.out.println("Word Count: " + wordCount);
-        System.out.println("Character Count: " + charCount);
+        System.out.println("Number of Lines: " + lineCount);
+        System.out.println("Number of Words: " + wordCount);
+        System.out.println("Number of Characters: " + charCount);
     }
 
     private static void processImageFile(Path filePath) throws IOException {

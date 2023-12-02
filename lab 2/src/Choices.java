@@ -1,12 +1,12 @@
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Options {
+public class Choices {
 
     public static void directoryOption(String workingDirectory) {
         Scanner sc = new Scanner(System.in);
         System.out.println("""
-                Options:
+                Actions:
                 1. commit
                 2. info <filename>
                 3. status
@@ -18,18 +18,18 @@ public class Options {
             case 1:
                 switch (actionMass[0]){
                     case "commit":
-                        Snapshot.createSnapshot(workingDirectory);
+                        Commit.createSnapshot(workingDirectory);
                         directoryOption(workingDirectory);
                         break;
                     case "info":
-                        ReadFileInfoInDirectory.printFiles(workingDirectory);
+                        FileInfoRead.printFiles(workingDirectory);
                         directoryOption(workingDirectory);
                         break;
                     case "status":
-                        if (Snapshot.checkCommit(workingDirectory)){
-                            Snapshot.status(workingDirectory);
+                        if (Commit.checkCommit(workingDirectory)){
+                            Commit.status(workingDirectory);
                         } else {
-                            System.out.println("Not commit yet in this directory");
+                            System.out.println("No commit in this directory");
                         }
                         directoryOption(workingDirectory);
                         break;
@@ -37,16 +37,16 @@ public class Options {
                         System.exit(0);
                         break;
                     default:
-                        System.out.println("Wrong operation.");
+                        System.out.println("Error");
                         directoryOption(workingDirectory);
                         break;
                 }
                 break;
             case 2:
                 if (Objects.equals(actionMass[0], "info")){
-                    FileProcessor.processFileInfo(workingDirectory, actionMass[1]);
+                    Processing.processFileInfo(workingDirectory, actionMass[1]);
                 } else {
-                    System.out.println("Wrong operation.");
+                    System.out.println("Error");
                 }
                 directoryOption(workingDirectory);
                 break;

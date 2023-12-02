@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Snapshot {
+public class Commit {
 
     public static void status(String workingDirectory){
         LocalDateTime time = lastCommitTime(workingDirectory);
@@ -92,7 +92,7 @@ public class Snapshot {
             writer.newLine();
             writer.write("" + currentTime);
             writer.close();
-            System.out.println("Snapshot created at time: " + currentTime);
+            System.out.println("Created at: " + currentTime);
         } catch (IOException e) {
             e.printStackTrace();
         }
