@@ -98,7 +98,7 @@ public class Processing {
 
                 if (line.contains("class ")) {
                     classCount = classCount + 1;
-                } else if (line.contains("void ") || line.contains("int ") ||  line.contains("std::string ") || line.contains("char ") || line.contains("String ")) {
+                } else if (line.contains("def ") || line.contains("void ") || line.contains("int ") ||  line.contains("std::string ") || line.contains("char ") || line.contains("String ")) {
                     methodCount++;
                 }
             }

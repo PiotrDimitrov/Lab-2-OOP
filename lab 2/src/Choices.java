@@ -6,6 +6,7 @@ public class Choices {
     public static void directoryOption(String workingDirectory) {
         Scanner sc = new Scanner(System.in);
         System.out.println("""
+                
                 Actions:
                 1. commit
                 2. info <filename>
